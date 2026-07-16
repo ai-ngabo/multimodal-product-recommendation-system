@@ -1,0 +1,19 @@
+{
+  "baseline_acc": 0.23684210526315788,
+  "cv_bench": {
+    "LogisticRegression": 0.21874170274170274,
+    "RandomForest": 0.22033189033189035,
+    "XGBoost": 0.20473593073593074
+  },
+  "winner": "RandomForest",
+  "best_params": {
+    "clf__max_depth": 6,
+    "clf__max_features": "sqrt",
+    "clf__min_samples_leaf": 2,
+    "clf__n_estimators": 200
+  },
+  "test_acc": 0.21052631578947367,
+  "test_macro_f1": 0.19278603749191986,
+  "test_log_loss": 1.6637635563236206,
+  "mean_mutual_information": 0.011123512646733665
+}
