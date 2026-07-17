@@ -6,4 +6,6 @@ seaborn
 jupyter
 librosa
 soundfile
-opencv-python
+opencv-python<5
+scikit-image
+pillow
