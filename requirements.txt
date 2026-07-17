@@ -7,3 +7,5 @@ jupyter
 librosa
 soundfile
 opencv-python
+scikit-image
+pillow
