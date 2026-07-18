@@ -35,19 +35,20 @@ MIN_SPEECH_SEC = 0.3  # below this after trimming, the capture is suspect
 
 # ingest & locating audio files
 def find_source(user, phrase):
-    """Locate data/unrefined/audios/<user>_<phrase>.<ext>.
+    """Locate data/unrefined/audios/<user>_<n>.<ext> for phrase key 'phraseN'.
 
-    Case- and extension-insensitive, mirroring find_source() in stage 4.
+    The digit in the phrase key is the capture index used by the recording
+    devices; PHRASES in config.py binds each index to its spoken text.
     """
-    stem = f"{user}_{phrase}".lower()
+    code = phrase.removeprefix("phrase")
+    stem = f"{user}_{code}".lower()
     if not RAW_AUDIO.is_dir():
         raise FileNotFoundError(f"Raw audio directory not found: {RAW_AUDIO}")
     for f in sorted(RAW_AUDIO.iterdir()):
         if f.suffix.lower() in AUDIO_FORMAT and f.stem.lower() == stem:
             return f
     raise FileNotFoundError(
-        f"No recording for {user}/{phrase}. Expected "
-        f"{RAW_AUDIO}/{user}_{phrase}.wav (or .m4a/.mp3/.flac/.ogg)")
+        f"No recording for {user}/{phrase} — expected {RAW_AUDIO}/{user}_{code}.*")
 
 # audio normalizing function
 def normalise(path):
@@ -177,15 +178,16 @@ def main():
     plt.close(fig)
 
     # augmentations for one recording 
-    demo, _ = normalise(find_source(USERS[0], PHRASES[0]))
-    augs = {"original": demo, **augment(demo, f"{USERS[0]}_{PHRASES[0]}")}
+    first = list(PHRASES)[0]
+    demo, _ = normalise(find_source(USERS[0], first))
+    augs = {"original": demo, **augment(demo, f"{USERS[0]}_{first}")}
     fig, axes = plt.subplots(len(augs), 1, figsize=(11, 2.0 * len(augs)),
                              sharex=True)
     for ax, (name, ya) in zip(axes, augs.items()):
         librosa.display.waveshow(ya, sr=SR, ax=ax)
         ax.set_title(name, fontsize=10)
         ax.set_xlabel("")
-    fig.suptitle(f"Audio augmentations ({USERS[0]} / {PHRASES[0]})", fontsize=13)
+    fig.suptitle(f"Audio augmentations ({USERS[0]} / {PHRASES[first]})", fontsize=13)
     fig.tight_layout()
     fig.savefig(PLOTS / "audio_pipeline" / "audio_augmentations.png",
                 dpi=110, bbox_inches="tight")
