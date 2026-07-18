@@ -40,3 +40,12 @@ The biometric models use preprocessed features stored in:
 
 - `outputs/features/image_features.csv`
 - `outputs/features/audio_features.csv`
+
+### Models
+
+The authentication pipeline consists of:
+
+- Facial Recognition Model
+- Voiceprint Verification Model
+
+These models provide an additional security layer before product recommendations are generated.
