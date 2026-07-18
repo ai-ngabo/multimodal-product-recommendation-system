@@ -18,6 +18,7 @@ This repository supports the first assignment task: merging customer social-prof
 - src/: preprocessing and merge scripts
 
 ## Recommended workflow
+Place the raw CSV files in data/unrefined/datasets/ Run the merge pipeline: python src/2_clean_merge_data.py Review the generated charts in reports/eda/ Use the notebook in notebooks/ for a step-by-step explanation of the analysis
 
 ## Biometric Authentication Pipeline
 
