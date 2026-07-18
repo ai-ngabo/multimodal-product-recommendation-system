@@ -18,17 +18,19 @@ This repository supports the first assignment task: merging customer social-prof
 - src/: preprocessing and merge scripts
 
 ## Recommended workflow
-Place the raw CSV files in data/unrefined/datasets/ Run the merge pipeline: python src/2_clean_merge_data.py Review the generated charts in reports/eda/ Use the notebook in notebooks/ for a step-by-step explanation of the analysis
-
-## Biometric Authentication Pipeline
-
-The project includes a multimodal biometric authentication module that verifies a user's identity before allowing access to the product recommendation model.
-
-
 1. Place the raw CSV files in data/unrefined/datasets/
 2. Run the merge pipeline:
    python src/2_clean_merge_data.py
 3. Review the generated charts in reports/eda/
 4. Use the notebook in notebooks/ for a step-by-step explanation of the analysis
 
+## Biometric Authentication Pipeline
+
+The project includes a multimodal biometric authentication module that verifies a user's identity before allowing access to the product recommendation model.
+
+### Authentication Flow
+
+1. Face image is captured and compared against authorized users.
+2. Voice sample is recorded and verified using extracted audio features.
+3. Only when both face recognition and voice verification succeed is the user allowed to access the product recommendation model.
 
