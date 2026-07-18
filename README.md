@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# multimodal-product-recommendation-system
-=======
-=======
-# multimodal-product-recommendation-system
-=======
->>>>>>> main
 # Multimodal Product Recommendation System
 
 This repository supports the first assignment task: merging customer social-profile and transaction data, exploring the dataset, and training a product recommendation model.
@@ -31,10 +23,6 @@ This repository supports the first assignment task: merging customer social-prof
 2. Run the merge pipeline:
    python src/2_clean_merge_data.py
 3. Review the generated charts in reports/eda/
-<<<<<<< HEAD
 4. Use the notebook in notebooks/ for a step-by-step explanation of the analysis
 
->>>>>>> bronze
-=======
-4. Use the notebook in notebooks/ for a step-by-step explanation of the analysis
->>>>>>> main
+
