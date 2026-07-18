@@ -34,3 +34,9 @@ The project includes a multimodal biometric authentication module that verifies 
 2. Voice sample is recorded and verified using extracted audio features.
 3. Only when both face recognition and voice verification succeed is the user allowed to access the product recommendation model.
 
+### Feature Files
+
+The biometric models use preprocessed features stored in:
+
+- `outputs/features/image_features.csv`
+- `outputs/features/audio_features.csv`
