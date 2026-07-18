@@ -2,10 +2,10 @@
 
     member photos are read from data/unrefined/images/, normalised to a
     canonical form (EXIF-corrected -> face-cropped -> square -> IMG_SIZE ->
-    illumination-equalised), cached to data/cleaned/faces/, then augmented (>=2 per
+    illumination-equalised), cached to data/cleaned/faces/, then augmented (more than 2 per
     image) and reduced to a feature vector.
 
-Steps: ingest -> normalise -> display grid -> >=2 augmentations/image -> features(csv)
+Steps: ingest -> normalise -> display grid -> augmentations/image -> features(csv)
 Features: 24-bin RGB colour histogram + 64-dim low-res grayscale embedding
         + HOG structure descriptor -> outputs/features/image_features.csv
 """
@@ -114,7 +114,7 @@ def _seed_from(key):
     return int(hashlib.md5(key.encode()).hexdigest()[:8], 16)
 
 def augment(img, key):
-    """>=2 augmentations, deterministic per source image."""
+    """ augmentations, deterministic per source image."""
     r = np.random.default_rng(_seed_from(key) ^ SEED)
     return {
         "rot":    img.rotate(int(r.integers(-15, 16)), resample=Image.BILINEAR),
