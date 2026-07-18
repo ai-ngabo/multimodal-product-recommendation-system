@@ -9,3 +9,5 @@ soundfile
 opencv-python<5
 scikit-image
 pillow
+librosa
+soundfile
