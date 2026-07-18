@@ -19,6 +19,11 @@ This repository supports the first assignment task: merging customer social-prof
 
 ## Recommended workflow
 
+## Biometric Authentication Pipeline
+
+The project includes a multimodal biometric authentication module that verifies a user's identity before allowing access to the product recommendation model.
+
+
 1. Place the raw CSV files in data/unrefined/datasets/
 2. Run the merge pipeline:
    python src/2_clean_merge_data.py
