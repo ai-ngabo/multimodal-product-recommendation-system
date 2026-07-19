@@ -18,6 +18,7 @@ RAW_IMAGES  = ROOT / "data" / "unrefined" / "images"
 FACES = ROOT / "data" / "cleaned" / "faces"
 RAW_AUDIO = ROOT / "data" / "unrefined" / "audios"
 CLEAN_AUDIO = ROOT / "data" / "cleaned" / "audios"
+MERGED_CSV = PROC / "customer_features.csv"
 
 # Biometric Identity Management variables (FACE + VOICE)
 USERS = ["alain", "hakim", "joella", "sonia"]
